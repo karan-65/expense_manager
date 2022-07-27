@@ -31,6 +31,11 @@ class homescreen extends StatelessWidget {
         datetime: DateTime.now()),
   ];
 
+//intianlising the variables for input of user data
+//that are the title and the amount
+  String TitleInput;
+  String AmountInput;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
