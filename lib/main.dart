@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:expense_manager/transcations.dart';
+import 'package:expense_manager/models/transcations.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -56,9 +56,15 @@ class homescreen extends StatelessWidget {
               // ignore: prefer_const_literals_to_create_immutables
               children: [
                 TextField(
+                  onChanged: (val) {
+                    TitleInput = val;
+                  },
                   decoration: InputDecoration(labelText: "Title"),
                 ),
                 TextField(
+                  onChanged: (val) {
+                    AmountInput = val;
+                  },
                   decoration: InputDecoration(labelText: "Amount"),
                 ),
                 FlatButton(
