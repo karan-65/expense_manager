@@ -1,29 +1,16 @@
-import 'package:flutter/material.dart';
 import 'package:expense_manager/models/transcations.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class TranscationList extends StatefulWidget {
-  @override
-  State<TranscationList> createState() => _TranscationListState();
-}
+class TranscationList extends StatelessWidget {
+  // ignore: non_constant_identifier_names
+  final List<transcations> transcation;
 
-class _TranscationListState extends State<TranscationList> {
-  final List<transcations> transcartion = [
-    transcations(
-        id: "t1",
-        title: "shoes shopping",
-        amount: 45,
-        datetime: DateTime.now()),
-    transcations(
-        id: "t2",
-        title: "clothes shopping",
-        amount: 41,
-        datetime: DateTime.now()),
-  ];
+  TranscationList(this.transcation);
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: transcartion.map((tx) {
+      children: transcation.map((tx) {
         return Card(
           child: Row(
             children: [

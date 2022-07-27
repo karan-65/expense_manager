@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:expense_manager/widgets/transcation_list.dart';
+import 'package:expense_manager/widgets/user_transcation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,7 +28,7 @@ class homescreen extends StatelessWidget {
             child: Text("chart"),
           ),
         ),
-        TranscationList(),
+        UserTranscation(),
       ]),
     );
   }

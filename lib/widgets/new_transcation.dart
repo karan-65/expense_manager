@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class NewTranscation extends StatelessWidget {
-  //intianlising the variables for input of user data
-//that are the title and the amount
   String TitleInput;
   String AmountInput;
+  final Function addtx;
+
+  NewTranscation(this.addtx);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,9 @@ class NewTranscation extends StatelessWidget {
               decoration: InputDecoration(labelText: "Amount"),
             ),
             FlatButton(
-              onPressed: () {},
+              onPressed: () {
+                addtx(TitleInput, double.parse(AmountInput));
+              },
               textColor: Colors.blue,
               child: Text("Add transcation"),
             ),
