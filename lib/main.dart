@@ -21,15 +21,17 @@ class homescreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Expense Manager")),
       // ignore: prefer_const_literals_to_create_immutables
-      body: Column(children: [
-        Card(
-          child: Container(
-            width: double.infinity,
-            child: Text("chart"),
+      body: SingleChildScrollView(
+        child: Column(children: [
+          Card(
+            child: Container(
+              width: double.infinity,
+              child: Text("chart"),
+            ),
           ),
-        ),
-        UserTranscation(),
-      ]),
+          UserTranscation(),
+        ]),
+      ),
     );
   }
 }
