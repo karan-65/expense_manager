@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: homescreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -19,7 +20,10 @@ class homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Expense Manager")),
+      appBar: AppBar(
+        title: Text("Expense Manager"),
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+      ),
       // ignore: prefer_const_literals_to_create_immutables
       body: SingleChildScrollView(
         child: Column(children: [
@@ -31,6 +35,10 @@ class homescreen extends StatelessWidget {
           ),
           UserTranscation(),
         ]),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
       ),
     );
   }
