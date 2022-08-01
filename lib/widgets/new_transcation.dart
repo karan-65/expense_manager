@@ -26,6 +26,9 @@ class _NewTranscationState extends State<NewTranscation> {
       enteredTitle,
       enteredAmount,
     );
+
+    Navigator.of(context).pop();
+    //it automatically closes popup screen after user enters data and submit
   }
 
   @override

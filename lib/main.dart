@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:expense_manager/widgets/chart.dart';
 import 'package:expense_manager/widgets/new_transcation.dart';
 import 'package:expense_manager/widgets/transcation_list.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,16 @@ class _homescreenState extends State<homescreen> {
         datetime: DateTime.now()),
   ];
 
+  List<transcations> get _recenttransactions {
+    return _transcartion.where((tx) {
+      return tx.datetime.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
+
   void _addnewtranscaations(String title, double amount) {
     final newtx = transcations(
         amount: amount,
@@ -71,12 +82,7 @@ class _homescreenState extends State<homescreen> {
       // ignore: prefer_const_literals_to_create_immutables
       body: SingleChildScrollView(
         child: Column(children: [
-          Card(
-            child: Container(
-              width: double.infinity,
-              child: Text("chart"),
-            ),
-          ),
+          Chart(_recenttransactions),
           TranscationList(_transcartion),
         ]),
       ),

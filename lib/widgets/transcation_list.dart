@@ -23,7 +23,8 @@ class TranscationList extends StatelessWidget {
                   // ignore: prefer_const_constructors
                   margin: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
                   child: Text(
-                    '\$${transcation[index].amount.toStringAsFixed(2)}',
+                    '₹' + transcation[index].amount.toStringAsFixed(2),
+                    //this will coshow only last two digits after decimal
                     // ignore: prefer_const_constructors
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
