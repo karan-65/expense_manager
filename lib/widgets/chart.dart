@@ -22,7 +22,10 @@ class Chart extends StatelessWidget {
             totalsum += recenttranscations[i].amount;
           }
         }
-        return {'days': DateFormat.E(weekday), 'amount': totalsum};
+        return {
+          'days': DateFormat.E().format(weekday).substring(0, 1),
+          'amount': totalsum
+        };
       },
     );
   }
