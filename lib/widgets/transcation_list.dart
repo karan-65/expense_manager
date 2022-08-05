@@ -14,41 +14,27 @@ class TranscationList extends StatelessWidget {
       child: ListView.builder(
         itemBuilder: (ctx, index) {
           return Card(
-            child: Row(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 2, color: Colors.blue)),
-                  padding: EdgeInsets.all(10),
-                  // ignore: prefer_const_constructors
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-                  child: Text(
-                    '₹' + transcation[index].amount.toStringAsFixed(2),
-                    //this will coshow only last two digits after decimal
-                    // ignore: prefer_const_constructors
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.blue),
-                  ),
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+            elevation: 4,
+            child: ListTile(
+              leading: CircleAvatar(
+                radius: 30,
+                child: Padding(
+                  padding: EdgeInsets.all(7),
+                  child: FittedBox(
+                      child: Text(
+                    '₹${transcation[index].amount.toStringAsFixed(2)}',
+                  )),
                 ),
-                Column(
-                  // ignore: prefer_const_literals_to_create_immutables
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      transcation[index].title,
-                      // ignore: prefer_const_constructors
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      DateFormat.yMMMd().format(transcation[index].datetime),
-                      style: const TextStyle(color: Colors.blueGrey),
-                    ),
-                  ],
-                )
-              ],
+              ),
+              title: Text(
+                transcation[index].title,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle:
+                  Text(DateFormat.yMMMd().format(transcation[index].datetime)),
             ),
           );
         },
