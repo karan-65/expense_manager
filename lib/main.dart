@@ -48,11 +48,11 @@ class _homescreenState extends State<homescreen> {
     }).toList();
   }
 
-  void _addnewtranscaations(String title, double amount) {
+  void _addnewtranscaations(String title, double amount, DateTime chosendate) {
     final newtx = transcations(
         amount: amount,
         id: DateTime.now().toString(),
-        datetime: DateTime.now(),
+        datetime: chosendate,
         title: title);
 
     setState(() {
@@ -66,6 +66,14 @@ class _homescreenState extends State<homescreen> {
         builder: (_) {
           return NewTranscation(_addnewtranscaations);
         });
+  }
+
+  void _deletetranscation(String id) {
+    setState(() {
+      _transcartion.removeWhere((tx) {
+        return tx.id == id;
+      });
+    });
   }
 
   @override
@@ -83,7 +91,7 @@ class _homescreenState extends State<homescreen> {
       body: SingleChildScrollView(
         child: Column(children: [
           Chart(_recenttransactions),
-          TranscationList(_transcartion),
+          TranscationList(_transcartion, _deletetranscation),
         ]),
       ),
       floatingActionButton: FloatingActionButton(
